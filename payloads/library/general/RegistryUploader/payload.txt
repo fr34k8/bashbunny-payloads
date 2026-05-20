@@ -6,13 +6,20 @@
 # Target:        Windows 10/11
 # Category:      Administrative
 
+# Setup
+LED SETUP
+ATTACKMODE HID
+
 # CONFIGURATION
-REG_KEY="Software\\MyApp\\Settings"
+REG_PATH="HKCU:\\Software\\MyApp\\Settings"
 REG_VALUE="Version"
 REG_DATA="1.2.3"
-RUN_DELAY="500"  # ms
+RUN_DELAY="500"
 
 # PAYLOAD
-ATTACKMODE HID
+RUN WIN "powershell -WindowStyle Hidden -Command \"New-Item -Path '$REG_PATH' -Force | Out-Null; Set-ItemProperty -Path '$REG_PATH' -Name '$REG_VALUE' -Value '$REG_DATA'\""
 QUACK DELAY $RUN_DELAY
-RUN WIN "powershell -Command \"New-Item -Path 'Registry::$REG_KEY' -Force; Set-ItemProperty -Path 'Registry::$REG_KEY' -Name '$REG_VALUE' -Value '$REG_DATA'\""
+QUACK "exit"
+QUACK ENTER
+LED FINISH
+LED G
