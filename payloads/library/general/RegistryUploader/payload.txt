@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Title:         Upload Registry Key
+# Author:        CoulsTech
+# Version:       1.0
+# Target:        Windows 10/11
+# Category:      Administrative
+
+# CONFIGURATION
+REG_KEY="Software\\MyApp\\Settings"
+REG_VALUE="Version"
+REG_DATA="1.2.3"
+RUN_DELAY="500"  # ms
+
+# PAYLOAD
+ATTACKMODE HID
+QUACK DELAY $RUN_DELAY
+RUN WIN "powershell -Command \"New-Item -Path 'Registry::$REG_KEY' -Force; Set-ItemProperty -Path 'Registry::$REG_KEY' -Name '$REG_VALUE' -Value '$REG_DATA'\""
