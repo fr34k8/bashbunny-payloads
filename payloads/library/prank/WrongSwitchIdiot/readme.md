@@ -1,5 +1,5 @@
 # Wrong_Switch_Idiot
-* Author: Reda-Redacted
+* Author: CoulsTech
 * Version: Version 1.0
 * Target: Windows
 
